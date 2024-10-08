@@ -8,7 +8,7 @@ include "../template/head_template.php"
     <label for="nombre">Nombre</label>
     <input type="text" id="nombre" name="nombre" required>
 
-    <label for="celula">Celula</label>
+    <label for="celula">Cédula</label>
     <input type="text" id="celula" name="celula" required>
 
     <label for="email">Correo</label>
