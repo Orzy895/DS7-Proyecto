@@ -20,6 +20,7 @@ CREATE TABLE Usuarios (
 
 CREATE TABLE Permisos (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre varchar(255) NOT NULL,
   descripcion varchar(255)
 );
 
