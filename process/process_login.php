@@ -1,11 +1,11 @@
 <?php
-require_once '../includes/Database.php';
+require_once '../db/Database.php';
 
 $database = new Database();
 $conn = $database->getConnection();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+
     $email = trim($_POST["email"]);
     $passw = $_POST["passw"];
 
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Rellene todos los campos");
     }
 
-    try{
+    try {
         $query = "SELECT * FROM usuarios WHERE email = :email";
         $stmt = $conn->prepare($query);
 
@@ -33,11 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Error al iniciar sesión";
         }
-    } catch(PDOException $exception){
+    } catch (PDOException $exception) {
         echo "Error en db: " . $exception->getMessage();
     }
 
     $stmt = null;
     $conn = null;
 }
-?>

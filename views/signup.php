@@ -1,28 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="../process/process_signup.php" method="post" novalidate>
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" required>
+<?php
+include "../template/head_template.php"
+?>
 
-        <label for="celula">Celula</label>
-        <input type="text" id="celula" name="celula" required>
+<form action="../process/process_signup.php" method="post" novalidate>
+    <h2>Registro de Usuario</h2>
 
-        <label for="email">Correo</label>
-        <input type="email" id="email" name="email" required>
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre" required>
 
-        <label for="passw">Contraseña</label>
-        <input type="password" id="passw" name="passw" required>
+    <label for="celula">Celula</label>
+    <input type="text" id="celula" name="celula" required>
 
-        <label for="passwConf">Confirmar Contraseña</label>
-        <input type="password" id="passwConf" name="passwConf" required>
+    <label for="email">Correo</label>
+    <input type="email" id="email" name="email" required>
 
-        <button>Crear usuario</button>
-    </form>
-</body>
-</html>
+    <label for="passw">Contraseña</label>
+    <input type="password" id="passw" name="passw" required>
+
+    <label for="passwConf">Confirmar Contraseña</label>
+    <input type="password" id="passwConf" name="passwConf" required>
+
+    <button type="submit">Crear usuario</button>
+</form>
+<?php
+include "../template/foot_template.php"
+?>

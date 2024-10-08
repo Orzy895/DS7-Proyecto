@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include "../template/head_template.php"
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<form action="../process/process_role.php" method="post" novalidate>
+    <h2>Role</h2>
 
-<body>
-    <form action="../process/process_role.php" method="post" novalidate>
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" required>
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre" required>
 
-        <label for="desc">Descripción</label>
-        <input type="text" id="desc" name="desc" required>
+    <label for="desc">Descripción</label>
+    <input type="text" id="desc" name="desc" required>
 
-        <button>Agregar role</button>
-    </form>
-</body>
-
-</html>
+    <button type="submit">role</button>
+</form>
+<?php
+include "../template/foot_template.php"
+?>

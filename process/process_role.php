@@ -1,19 +1,19 @@
 <?php
-require_once '../includes/Database.php';
+require_once '../db/Database.php';
 
 $database = new Database();
 $conn = $database->getConnection();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+
     $nombre = trim($_POST["nombre"]);
     $desc = trim($_POST["desc"]);
 
-    if (empty($nombre)|| empty($desc)) {
+    if (empty($nombre) || empty($desc)) {
         die("Rellene todos los campos");
     }
 
-    try{
+    try {
         $query = "INSERT INTO roles (nombre, descripcion) VALUES (:nombre, :desc)";
         $stmt = $conn->prepare($query);
 
@@ -25,11 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Error al agregar ról";
         }
-    } catch(PDOException $exception){
+    } catch (PDOException $exception) {
         echo "Error en db: " . $exception->getMessage();
     }
 
     $stmt = null;
     $conn = null;
 }
-?>

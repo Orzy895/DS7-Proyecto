@@ -1,11 +1,11 @@
 <?php
-require_once '../includes/Database.php';
+require_once '../db/Database.php';
 
 $database = new Database();
 $conn = $database->getConnection();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+
     $nombre = trim($_POST["nombre"]);
     $celula = trim($_POST["celula"]);
     $email = trim($_POST["email"]);
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $hashed_password = password_hash($passw, PASSWORD_DEFAULT);
 
-    try{
+    try {
         $query = "INSERT INTO usuarios (nombre, celula, email, contraseña, role_id) VALUES (:nombre, :celula, :email, :password, 1)";
         $stmt = $conn->prepare($query);
 
@@ -40,11 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Error al crear el usuario";
         }
-    } catch(PDOException $exception){
+    } catch (PDOException $exception) {
         echo "Error en db: " . $exception->getMessage();
     }
 
     $stmt = null;
     $conn = null;
 }
-?>

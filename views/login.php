@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include "../template/head_template.php"
+?>
+<form action="../process/process_login.php" method="post">
+    <h2>Inicio de Sesión</h2>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <label for="email">Correo</label>
+    <input type="email" id="email" name="email" required>
 
-<body>
-    <form action="../process/process_login.php" method="post">
-        <label for="email">Correo</label>
-        <input type="email" id="email" name="email" required>
+    <label for="passw">Contraseña</label>
+    <input type="password" id="passw" name="passw" required>
 
-        <label for="passw">Contraseña</label>
-        <input type="password" id="passw" name="passw" required>
-
-        <button>Iniciar Sesión</button>
-    </form>
-</body>
-
-</html>
+    <button type="submit">Iniciar Sesión</button>
+</form>
+<?php
+include "../template/foot_template.php"
+?>
