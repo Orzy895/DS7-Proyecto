@@ -1,5 +1,5 @@
 <?php
-require_once '../db/Database.php';
+require_once '../../db/Database.php';
 
 $database = new Database();
 $conn = $database->getConnection();
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             if (password_verify($passw, $row['contraseña'])) {
                 session_start();
-                $_SESSION['user'] = $row['email'];
+                $_SESSION['user'] = $row['id'];
                 $_SERVER['role'] = $row['role_id'];
                 echo "Inicio de sesión exitoso, " . htmlspecialchars($row['nombre']);
             } else {

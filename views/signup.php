@@ -2,14 +2,14 @@
 include "../template/head_template.php"
 ?>
 
-<form action="../process/process_signup.php" method="post" novalidate>
+<form action="../process/module_users/process_signup.php" method="post" novalidate>
     <h2>Registro de Usuario</h2>
 
     <label for="nombre">Nombre</label>
     <input type="text" id="nombre" name="nombre" required>
 
-    <label for="celula">Cédula</label>
-    <input type="text" id="celula" name="celula" required>
+    <label for="cedula">Cédula</label>
+    <input type="text" id="cedula" name="cedula" required>
 
     <label for="email">Correo</label>
     <input type="email" id="email" name="email" required>

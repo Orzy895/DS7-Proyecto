@@ -1,7 +1,7 @@
 <?php
 include "../template/head_template.php"
 ?>
-<form action="../process/process_login.php" method="post">
+<form action="../process/module_users/process_login.php" method="post">
     <h2>Inicio de Sesión</h2>
 
     <label for="email">Correo</label>

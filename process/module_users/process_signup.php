@@ -1,5 +1,5 @@
 <?php
-require_once '../db/Database.php';
+require_once '../../db/Database.php';
 
 $database = new Database();
 $conn = $database->getConnection();
@@ -7,12 +7,12 @@ $conn = $database->getConnection();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $nombre = trim($_POST["nombre"]);
-    $celula = trim($_POST["celula"]);
+    $cedula = trim($_POST["cedula"]);
     $email = trim($_POST["email"]);
     $passw = $_POST["passw"];
     $passwConf = $_POST["passwConf"];
 
-    if (empty($nombre) || empty($celula) || empty($email) || empty($passw) || empty($passwConf)) {
+    if (empty($nombre) || empty($cedula) || empty($email) || empty($passw) || empty($passwConf)) {
         die("Rellene todos los campos");
     }
 
@@ -27,11 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($passw, PASSWORD_DEFAULT);
 
     try {
-        $query = "INSERT INTO usuarios (nombre, celula, email, contraseña, role_id) VALUES (:nombre, :celula, :email, :password, 1)";
+        $query = "INSERT INTO usuarios (nombre, cedula, email, contraseña, role_id) VALUES (:nombre, :cedula, :email, :password, 1)";
         $stmt = $conn->prepare($query);
 
         $stmt->bindParam(':nombre', $nombre);
-        $stmt->bindParam(':celula', $celula);
+        $stmt->bindParam(':cedula', $cedula);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $hashed_password);
 

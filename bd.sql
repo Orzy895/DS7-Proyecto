@@ -1,6 +1,6 @@
-CREATE DATABASE PFASE1;
+CREATE DATABASE clinica;
 
-USE PFASE1;
+USE clinica;
 
 CREATE TABLE Roles (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -11,25 +11,11 @@ CREATE TABLE Roles (
 CREATE TABLE Usuarios (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre varchar(255) NOT NULL,
-  celula varchar(255) NOT NULL,
+  cedula varchar(255) NOT NULL,
   email varchar(255) NOT NULL,
   contraseña varchar(255) NOT NULL,
   role_id INT NOT NULL,
   FOREIGN KEY (role_id) REFERENCES Roles(id)
-);
-
-CREATE TABLE Permisos (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  nombre varchar(255) NOT NULL,
-  descripcion varchar(255)
-);
-
-CREATE TABLE Roles_Permisos (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  role_id INT NOT NULL,
-  permiso_id INT,
-  FOREIGN KEY (role_id) REFERENCES Roles(id),
-  FOREIGN KEY(permiso_id) REFERENCES Permisos(id)
 );
 
 CREATE TABLE Pacientes (
@@ -40,11 +26,33 @@ CREATE TABLE Pacientes (
   FOREIGN KEY(usuario_id) REFERENCES Usuarios(id)
 );
 
+CREATE TABLE Departamento (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre varchar(255) NOT NULL,
+  descripcion varchar(255) NOT NULL
+);
+
 CREATE TABLE Personales (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  usuario_id INT NOT NULL,
   posicion varchar(255) NOT NULL,
-  FOREIGN KEY(usuario_id) REFERENCES Usuarios(id)
+  usuario_id INT NOT NULL,
+  departamento_id INT NOT NULL,
+  FOREIGN KEY(usuario_id) REFERENCES Usuarios(id),
+  FOREIGN KEY(departamento_id) REFERENCES Departamento(id)
+);
+
+CREATE TABLE EspecialidadesMedicas (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre varchar(255) NOT NULL,
+  descripcion varchar(255) NOT NULL
+);
+
+CREATE TABLE MedicoEspecialidad (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  especialidad_id INT NOT NULL,
+  medico_id INT NOT NULL,
+  FOREIGN KEY(especialidad_id) REFERENCES EspecialidadesMedicas(id),
+  FOREIGN KEY(medico_id) REFERENCES Personales(id)
 );
 
 CREATE TABLE Citas (
@@ -73,4 +81,6 @@ CREATE TABLE Facturas (
   FOREIGN KEY(cajero_id) REFERENCES Personales(id)
 );
 
-INSERT INTO `roles` (`id`, `nombre`, `descripcion`) VALUES (NULL, 'USUARIO', 'es un usuario');
+INSERT INTO `roles` (`nombre`, `descripcion`) VALUES 
+('USUARIO', 'es un usuario'),
+('ADMIN', 'es un administrador');
