@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once '../../db/Database.php';
+require_once '../../../db/Database.php';
 
 if (!isset($_SESSION['user']) || $_SESSION['role'] !== 'ADMIN') {
     die("No tienes permisos para realizar esta acción.");
@@ -28,4 +28,3 @@ try {
 
 $stmt = null;
 $conn = null;
-?>

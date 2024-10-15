@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../db/Database.php';
+require_once '../../../db/Database.php';
 
 $database = new Database();
 $conn = $database->getConnection();
@@ -11,7 +11,7 @@ try {
         FROM usuarios
     ";
     $stmt = $conn->prepare($query);
-    
+
     $stmt->execute();
 
     if ($stmt->rowCount() > 0) {
@@ -26,4 +26,3 @@ try {
 
 $stmt = null;
 $conn = null;
-?>

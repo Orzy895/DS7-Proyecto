@@ -111,7 +111,6 @@
     <header>
         <a style="text-decoration: none; color: white;" href="/DS7-Proyecto/index.php">
             <h1>Clínica Hospital</h1>
-
         </a>
     </header>
 

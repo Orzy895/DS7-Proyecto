@@ -1,5 +1,5 @@
 <?php
-include "../template/head_template.php"
+include "../../../template/head_template.php"
 ?>
 
 <form action="../process/process_role.php" method="post" novalidate>
@@ -14,5 +14,6 @@ include "../template/head_template.php"
     <button type="submit">Agregar rol</button>
 </form>
 <?php
-include "../template/foot_template.php"
+include "../../../template/foot_template.php"
+
 ?>

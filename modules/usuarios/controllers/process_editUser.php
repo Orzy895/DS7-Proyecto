@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../../db/Database.php';
+require_once '../../../db/Database.php';
 
 if (!isset($_SESSION['user'])) {
     die(json_encode(['success' => false, 'message' => 'No hay sesión activa']));
@@ -41,4 +41,3 @@ try {
 
 $stmt = null;
 $conn = null;
-?>

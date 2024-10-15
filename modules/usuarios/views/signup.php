@@ -1,8 +1,9 @@
 <?php
-include "../template/head_template.php"
+include "../../../template/head_template.php"
+
 ?>
 
-<form action="../process/module_users/process_signup.php" method="post" novalidate>
+<form action="../controllers/process_signup.php" method="post" novalidate>
     <h2>Registro de Usuario</h2>
 
     <label for="nombre">Nombre</label>
@@ -23,5 +24,6 @@ include "../template/head_template.php"
     <button type="submit">Crear usuario</button>
 </form>
 <?php
-include "../template/foot_template.php"
+include "../../../template/foot_template.php"
+
 ?>

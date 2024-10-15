@@ -1,11 +1,18 @@
 <?php
-require_once '../../db/Database.php';
+require_once '../../../db/Database.php';
+include '../../../template/head_template.php';
+
+session_start();
+
+if (isset($_SESSION['user'])) {
+    echo "Ya has iniciado sesión.";
+    exit();
+}
 
 $database = new Database();
 $conn = $database->getConnection();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $email = trim($_POST["email"]);
     $passw = $_POST["passw"];
 
@@ -16,16 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $query = "SELECT * FROM usuarios WHERE email = :email";
         $stmt = $conn->prepare($query);
-
         $stmt->bindParam(':email', $email);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             if (password_verify($passw, $row['contraseña'])) {
-                session_start();
                 $_SESSION['user'] = $row['id'];
-                $_SERVER['role'] = $row['role_id'];
+                $_SESSION['role'] = $row['role_id'];
                 echo "Inicio de sesión exitoso, " . htmlspecialchars($row['nombre']);
             } else {
                 die("Contraseña incorrecta");
