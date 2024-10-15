@@ -4,14 +4,14 @@ session_start();
 require_once '../../../db/Database.php';
 
 if (!isset($_SESSION['user']) || $_SESSION['role'] !== 'ADMIN') {
-    die("No tienes permisos para realizar esta acción.");
+    die("No tienes permisos para realizar esta acción." . ($_SESSION['user'] . $_SESSION['role']));
 }
 
 $database = new Database();
 $conn = $database->getConnection();
 
 try {
-    $userId = $_POST['userId'];
+    $userId = $_POST['id'];
 
     $query = "DELETE FROM usuarios WHERE id = :userId";
     $stmt = $conn->prepare($query);

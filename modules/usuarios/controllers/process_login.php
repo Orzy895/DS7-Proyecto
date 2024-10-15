@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     try {
-        $query = "SELECT * FROM usuarios WHERE email = :email";
+        $query = "SELECT usuarios.nombre, usuarios.id, roles.nombre as role, usuarios.contraseña FROM usuarios JOIN roles on usuarios.role_id = roles.id WHERE email = :email";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             if (password_verify($passw, $row['contraseña'])) {
                 $_SESSION['user'] = $row['id'];
-                $_SESSION['role'] = $row['role_id'];
+                $_SESSION['role'] = $row['role'];
                 echo "Inicio de sesión exitoso, " . htmlspecialchars($row['nombre']);
             } else {
                 die("Contraseña incorrecta");
