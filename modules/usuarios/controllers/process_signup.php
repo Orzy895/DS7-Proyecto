@@ -36,7 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':password', $hashed_password);
 
         if ($stmt->execute()) {
-            echo "Usuario creado";
+            header("Location: ../../../index.php");
+            exit();
         } else {
             echo "Error al crear el usuario";
         }
