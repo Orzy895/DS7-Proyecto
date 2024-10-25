@@ -1,3 +1,8 @@
+<?php
+ob_start();  // Start output buffering
+session_start();  // Ensure sessions are started before accessing $_SESSION
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -146,8 +151,8 @@
 
 <body>
     <header style="display: flex; justify-content: space-between; align-items: center; padding-right: 50px; padding-left: 50px; position: relative;">
-        <a style="text-decoration: none; color: white; display: flex; align-items: center;" href="/DS7-Proyecto/index.php">
-            <img src="/DS7-Proyecto/assets/favicon.svg" alt="Logo" width="100" height="auto">
+        <a style="text-decoration: none; color: white; display: flex; align-items: center;" href="../index.php">
+            <img src="../assets/favicon.svg" alt="Logo" width="100" height="auto">
             <h2 style="margin-bottom: 0;">Clínica Hospital</h2>
         </a>
         <?php

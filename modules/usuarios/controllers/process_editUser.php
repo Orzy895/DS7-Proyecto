@@ -10,8 +10,7 @@ $database = new Database();
 $conn = $database->getConnection();
 
 try {
-    $userId = $_SESSION['user'];
-
+    $userId = $POST['userList'];
     $nombre = $_POST['nombre'];
     $email = $_POST['email'];
     $cedula = $_POST['cedula'];

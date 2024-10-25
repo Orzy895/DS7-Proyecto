@@ -10,7 +10,6 @@ include "../template/head_template.php"
 
 <h1 style="margin-bottom: 8%;">Panel de Administración de Usuarios</h1>
 
-<!-- User combo box for selection -->
 <div>
     <label for="userList"><strong>Seleccionar Usuario:</strong></label>
     <select id="userList" name="userList">

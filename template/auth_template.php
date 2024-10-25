@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (isset($_SESSION['user'])) {
     $link = '/DS7-Proyecto/modules/usuarios/controllers/process_logout.php';
     $text = "Logout";
