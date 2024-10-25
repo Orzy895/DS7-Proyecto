@@ -21,7 +21,10 @@ include "../../../template/head_template.php"
     <label for="passwConf">Confirmar Contraseña</label>
     <input type="password" id="passwConf" name="passwConf" required>
 
-    <button type="submit">Crear usuario</button>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <button type="submit">Crear Usuario</button>
+        <a href="login.php" style="padding-right: 5%;" class="account-link">¿Ya tienes cuenta?</a>
+    </div>
 </form>
 <?php
 include "../../../template/foot_template.php"

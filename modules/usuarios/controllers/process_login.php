@@ -6,6 +6,8 @@ session_start();
 
 if (isset($_SESSION['user'])) {
     echo "Ya has iniciado sesión.";
+    echo $_SESSION['user'];
+    echo $_SESSION['role'];
     exit();
 }
 
@@ -31,7 +33,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($passw, $row['contraseña'])) {
                 $_SESSION['user'] = $row['id'];
                 $_SESSION['role'] = $row['role'];
-                echo "Inicio de sesión exitoso, " . htmlspecialchars($row['nombre']);
+                $_SESSION['userName'] = $row['nombre'];
+                header("Location: ../../../index.php");
+                exit();
             } else {
                 die("Contraseña incorrecta");
             }
