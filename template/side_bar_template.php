@@ -1,54 +1,20 @@
-<style>
-    body {
-        display: flex;
-        font-family: Arial, sans-serif;
+<div class="w-56 h-screen bg-gray-900 pt-5 flex flex-col items-center flex-shrink-0">
+    <?php
+    $links = [
+        "usuarios" => "Usuarios",
+        "roles" => "Roles",
+        "inventario" => "Inventario",
+        "facturacion" => "Facturación",
+        "servicios" => "Servicios",
+        "permisos" => "Permisos",
+        "personales" => "Personales",
+        "pacientes" => "Pacientes",
+        "departamentos" => "Departamentos"
+    ];
+
+    foreach ($links as $module => $label) {
+        $activeClass = strpos($_SERVER["REQUEST_URI"], "/ds7-Proyecto/modules/$module/") !== false ? "bg-blue-900 text-white" : "text-gray-300 hover:bg-gray-700";
+        echo "<a href='/ds7-Proyecto/modules/$module/index.php' class='px-4 py-2 rounded my-2 w-3/4 text-center $activeClass'>$label</a>";
     }
-
-    .sidebar {
-        width: 200px;
-        height: 100vh;
-        background-color: #333;
-        padding-top: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .sidebar a {
-        text-decoration: none;
-        color: white;
-        background-color: #444;
-        padding: 10px 20px;
-        margin: 5px 0;
-        width: 80%;
-        text-align: center;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
-
-    .sidebar a:hover {
-        background-color: #555;
-    }
-
-    .content {
-        padding: 20px;
-        flex-grow: 1;
-        background-color: #f4f4f4;
-        min-height: 100vh;
-    }
-</style>
-
-<div class="sidebar">
-    <a href="modules/usuarios/index.php" class="btn">Usuarios</a>
-    <a href="modules/roles/index.php" class="btn">Roles</a>
-    <a href="modules/inventario/index.php" class="btn">Inventario</a>
-    <a href="modules/facturacion/index.php" class="btn">Facturación</a>
-    <a href="modules/servicios/index.php" class="btn">Servicios</a>
-    <a href="modules/permisos/index.php" class="btn">Permisos</a>
-    <a href="modules/personal/index.php" class="btn">Personal</a>
-    <a href="modules/pacientes/index.php" class="btn">Pacientes</a>
-</div>
-
-<div class="content">
-    <!-- Main content goes here -->
+    ?>
 </div>

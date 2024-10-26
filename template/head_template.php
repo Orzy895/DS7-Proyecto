@@ -10,32 +10,12 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gestión de Clínica Hospital</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        body {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        header {
-            background-color: #1F2937;
-            color: white;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        main {
-            flex-grow: 1;
-            display: flex;
-            background-color: #F3F4F6;
-            overflow: hidden;
         }
 
         .btn {
@@ -57,12 +37,7 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
             background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
-            width: 50%;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
+            margin: 2% 30%;
         }
 
         label {
@@ -96,69 +71,19 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
         button:hover {
             background-color: #1D4ED8;
         }
-
-        footer {
-            background-color: #1F2937;
-            color: white;
-            padding: 10px 0;
-        }
-
-        ul {
-            list-style: none;
-            display: flex;
-            justify-content: space-around;
-        }
-
-        a.account-link:hover {
-            color: #1D4ED8;
-            text-decoration: none;
-        }
-
-        .sidebar {
-            width: 220px;
-            height: 100vh;
-            background-color: #333;
-            padding-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .sidebar a {
-            text-decoration: none;
-            color: white;
-            background-color: #444;
-            padding: 10px 20px;
-            margin: 5px 0;
-            width: 80%;
-            text-align: center;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .sidebar a:hover {
-            background-color: #555;
-        }
-
-        .content {
-            padding: 20px;
-            flex-grow: 1;
-            overflow-y: auto;
-        }
     </style>
 </head>
 
-<body>
-    <header style="display: flex; justify-content: space-between; align-items: center; padding-right: 50px; padding-left: 50px; position: relative;">
-        <a style="text-decoration: none; color: white; display: flex; align-items: center;" href="../index.php">
-            <img src="../assets/favicon.svg" alt="Logo" width="100" height="auto">
-            <h2 style="margin-bottom: 0;">Clínica Hospital</h2>
+<body class="flex flex-col h-screen overflow-hidden">
+    <header class="bg-gray-900 text-white flex justify-between items-center px-12 py-4 relative">
+        <a href="/ds7-Proyecto/index.php" class="flex items-center text-white no-underline">
+            <img src="/ds7-Proyecto/assets/favicon.svg" alt="Logo" width="100" height="auto" class="mr-2">
+            <h2 class="m-0">Clínica Hospital</h2>
         </a>
         <?php
         $a = require_once 'auth_template.php';
         ?>
-        <h1 style="position: absolute; left: 50%; transform: translateX(-50%);"><?php echo $a['userName']; ?></h1>
+        <h1 class="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold"><?php echo $a['userName']; ?></h1>
         <div>
             <?php
             echo $a['link'];
@@ -166,12 +91,12 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
         </div>
     </header>
 
-    <main style="display: flex; flex-direction: row;">
-        <div class="sidebar">
+    <main class="flex flex-row flex-grow overflow-hidden">
+        <div>
             <?php
             if (isset($_SESSION['user'])) {
                 require_once 'side_bar_template.php';
             }
             ?>
         </div>
-        <div class="content">
+        <div class="flex-grow p-5 bg-gray-100 overflow-y-auto min-h-screen">
