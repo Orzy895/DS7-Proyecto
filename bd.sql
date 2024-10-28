@@ -20,10 +20,11 @@ CREATE TABLE Usuarios (
 
 CREATE TABLE Pacientes (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  usuario_id INT,
+  cedula varchar(10) NOT NULL,
+  nombre varchar(255) NOT NULL.
+  dob timestamp NOT NULL,
   historial varchar(255),
   seguro varchar(255),
-  FOREIGN KEY(usuario_id) REFERENCES Usuarios(id)
 );
 
 CREATE TABLE Departamento (
@@ -61,8 +62,10 @@ CREATE TABLE Citas (
   lugar varchar(255) NOT NULL,
   paciente_id INT NOT NULL,
   medico_id INT NOT NULL,
+  servicio_id INT NOT NULL,
   FOREIGN KEY(paciente_id) REFERENCES Pacientes(id),
-  FOREIGN KEY(medico_id) REFERENCES Personales(id)
+  FOREIGN KEY(medico_id) REFERENCES Personales(id),
+  FOREIGN KEY(servicio_id) REFERENCES Servicios(id)
 );
 
 CREATE TABLE Productos (
@@ -73,13 +76,22 @@ CREATE TABLE Productos (
   precio DECIMAL(10, 2)
 );
 
+CREATE TABLE Servicios (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre varchar(255) NOT NULL,
+  precio DECIMAL(10, 2)
+);
+
 CREATE TABLE Facturas (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   detalles json,
   total DECIMAL(10, 2),
   cajero_id INT,
-  FOREIGN KEY(cajero_id) REFERENCES Personales(id)
+  servicio_id INT,
+  FOREIGN KEY(cajero_id) REFERENCES Personales(id),
+  FOREIGN KEY(servicio_id) REFERENCES Servicios(id)
 );
+
 
 INSERT INTO `roles` (`nombre`, `descripcion`) VALUES 
 ('USUARIO', 'es un usuario'),

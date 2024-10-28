@@ -23,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':departamento', $departamento);
 
         if ($stmt->execute()) {
-            echo json_encode(['success' => true, 'message' => 'Personal agregado correctamente.']);
+            $userId = $conn->lastInsertId();
+            echo json_encode(['success' => true, 'userId' => $userId, 'message' => 'Personal agregado correctamente.']);
         } else {
             echo json_encode(['success' => false, 'message' => 'Error al agregar personal.']);
         }
