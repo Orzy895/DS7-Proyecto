@@ -1,6 +1,6 @@
 <?php
 require_once '../../../db/Database.php';
-include '../../../template/head_template.php';
+include_once '../../../template/head_template.php';
 
 session_start();
 

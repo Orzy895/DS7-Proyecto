@@ -3,17 +3,16 @@ include_once "template/head_template.php";
 
 if (isset($_SESSION['user'])) {
 ?>
-    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <a href="modules/usuarios/index.php" class="btn">Usuarios</a>
+    <div class="flex flex-col items-center justify-center">
+        <a href="modules/usuarios/index" class="btn">Usuarios</a>
         <a href="modules/roles/index.php" class="btn">Roles</a>
-        <a href="modules/roles/index.php" class="btn">Inventario</a>
-        <a href="modules/roles/index.php" class="btn">Facturacion</a>
-        <a href="modules/roles/index.php" class="btn">Servicios</a>
-        <a href="modules/roles/index.php" class="btn">Permisos</a>
-        <a href="modules/roles/index.php" class="btn">Personal</a>
-        <a href="modules/roles/index.php" class="btn">Pacientes</a>
-        <a href="template/side_bar_template.php" class="btn">sidebar</a>
-
+        <a href="modules/inventario/index.php" class="btn">Inventario</a>
+        <a href="modules/facturacion/index.php" class="btn">Facturación</a>
+        <a href="modules/servicios/index.php" class="btn">Servicios</a>
+        <a href="modules/permisos/index.php" class="btn">Permisos</a>
+        <a href="modules/personales/index.php" class="btn">Personales</a>
+        <a href="modules/pacientes/index.php" class="btn">Pacientes</a>
+        <a href="modules/departamentos/index.php" class="btn">Departamentos</a>
     </div>
 <?php
 } else {
@@ -21,5 +20,5 @@ if (isset($_SESSION['user'])) {
     exit();
 }
 
-include_once "template/foot_template.php"
+include_once "template/foot_template.php";
 ?>

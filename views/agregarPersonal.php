@@ -1,5 +1,5 @@
 <?php
-include "../template/head_template.php"
+include_once "../template/head_template.php"
 ?>
 
 <head>
@@ -37,5 +37,5 @@ include "../template/head_template.php"
 <p id="message"></p>
 
 <?php
-include '../template/foot_template.php'
+include_once '../template/foot_template.php'
 ?>

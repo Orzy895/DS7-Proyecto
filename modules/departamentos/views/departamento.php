@@ -1,5 +1,5 @@
 <?php
-include "../../../template/head_template.php"
+include_once "../../../template/head_template.php"
 ?>
 
 <form action="../controllers/process_addDepartamento.php" method="post" novalidate>
@@ -14,6 +14,6 @@ include "../../../template/head_template.php"
     <button type="submit">Agregar departamento</button>
 </form>
 <?php
-include "../../../template/foot_template.php"
+include_once "../../../template/foot_template.php"
 
 ?>
