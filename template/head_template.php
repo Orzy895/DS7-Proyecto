@@ -99,4 +99,4 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
             }
             ?>
         </div>
-        <div class="flex-grow p-5 bg-gray-100 overflow-y-auto min-h-screen">
+        <div class="flex-grow p-5 bg-gray-100 overflow-y-auto">

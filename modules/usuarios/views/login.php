@@ -13,10 +13,10 @@ include_once "../../../template/head_template.php"
 
     <div class="flex items-center justify-between">
         <button type="submit">Iniciar Sesión</button>
-        <a href="signup.php" class="hover:underline pr-5">¿No tienes cuenta?</a>
+        <a href="signup.php" class="pr-5">¿No tienes cuenta?</a>
     </div>
 </form>
 <?php
-include "../../../template/foot_template.php"
+include_once "../../../template/foot_template.php"
 
 ?>

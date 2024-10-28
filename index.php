@@ -4,7 +4,7 @@ include_once "template/head_template.php";
 if (isset($_SESSION['user'])) {
 ?>
     <div class="flex flex-col items-center justify-center">
-        <a href="modules/usuarios/index.php" class="btn">Usuarios</a>
+        <a href="modules/usuarios/index" class="btn">Usuarios</a>
         <a href="modules/roles/index.php" class="btn">Roles</a>
         <a href="modules/inventario/index.php" class="btn">Inventario</a>
         <a href="modules/facturacion/index.php" class="btn">Facturación</a>
@@ -13,9 +13,6 @@ if (isset($_SESSION['user'])) {
         <a href="modules/personales/index.php" class="btn">Personales</a>
         <a href="modules/pacientes/index.php" class="btn">Pacientes</a>
         <a href="modules/departamentos/index.php" class="btn">Departamentos</a>
-
-        <a href="views/personalAdmin.php" class="btn">Personal Admin</a>
-
     </div>
 <?php
 } else {

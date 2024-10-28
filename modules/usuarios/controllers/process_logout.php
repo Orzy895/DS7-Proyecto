@@ -1,5 +1,5 @@
 <?php
-include '../../../template/head_template.php';
+include_once '../../../template/head_template.php';
 
 
 if (isset($_SESSION['user'])) {

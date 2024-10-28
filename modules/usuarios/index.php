@@ -1,5 +1,5 @@
 <?php
-include '../../template/head_template.php';
+include_once '../../template/head_template.php';
 ?>
 
 <div class="flex flex-col justify-center items-center">
@@ -11,5 +11,5 @@ include '../../template/head_template.php';
 </div>
 
 <?php
-include '../../template/foot_template.php';
+include_once '../../template/foot_template.php';
 ?>

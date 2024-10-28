@@ -1,5 +1,5 @@
 <?php
-include "../../../template/head_template.php"
+include_once "../../../template/head_template.php"
 
 ?>
 
@@ -23,10 +23,10 @@ include "../../../template/head_template.php"
 
     <div class="flex items-center justify-between">
         <button type="submit">Crear Usuario</button>
-        <a href="login.php" class="hover:underline pr-5">¿Ya tienes cuenta?</a>
+        <a href="login.php" class="pr-5">¿Ya tienes cuenta?</a>
     </div>
 </form>
 <?php
-include "../../../template/foot_template.php"
+include_once "../../../template/foot_template.php"
 
 ?>
