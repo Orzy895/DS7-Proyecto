@@ -18,8 +18,35 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
             box-sizing: border-box;
         }
 
+        .seccion{
+            display: flex;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px;
+            width: 30%;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .seccion a{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 0px;
+            border-radius: 0px 0px 5px 5px;
+        }
+
+        .img{
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: 30% 0%;
+            border-radius: 5px 5px 0px 0px;
+            background-color: white;
+        }
+
         .btn {
-            padding: 10px 20px;
+            padding: 15px;
             background-color: #3B82F6;
             color: white;
             text-decoration: none;
