@@ -56,6 +56,12 @@ CREATE TABLE MedicoEspecialidad (
   FOREIGN KEY(medico_id) REFERENCES Personales(id)
 );
 
+CREATE TABLE Servicios (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre varchar(255) NOT NULL,
+  precio DECIMAL(10, 2)
+);
+
 CREATE TABLE Citas (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   tiempo timestamp NOT NULL,
@@ -73,12 +79,6 @@ CREATE TABLE Productos (
   tipo varchar(255) NOT NULL,
   nombre varchar(255) NOT NULL,
   cantidad INT NOT NULL,
-  precio DECIMAL(10, 2)
-);
-
-CREATE TABLE Servicios (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  nombre varchar(255) NOT NULL,
   precio DECIMAL(10, 2)
 );
 
