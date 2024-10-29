@@ -5,7 +5,6 @@ $database = new Database();
 $conn = $database->getConnection();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $tiempo = trim($_POST["tiempo"]);
     $lugar = trim($_POST["lugar"]);
     $paciente = trim($_POST["paciente"]);
@@ -13,7 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servicio = trim($_POST["servicio"]);
 
     if (empty($tiempo) || empty($lugar) || empty($paciente) || empty($medico) || empty($servicio)) {
-        die("Rellene todos los campos");
+        echo json_encode(['success' => false, 'message' => 'Rellene todos los campos']);
+        exit;
     }
 
     try {
@@ -27,12 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':servicio', $servicio);
 
         if ($stmt->execute()) {
-            echo "cita agregado";
+            echo json_encode(['success' => true, 'message' => 'Cita agendada correctamente.']);
         } else {
-            echo "Error al agregar cita";
+            echo json_encode(['success' => false, 'message' => 'Error al agendar cita.']);
         }
     } catch (PDOException $exception) {
-        echo "Error en db: " . $exception->getMessage();
+        echo json_encode(['success' => false, 'message' => 'Error al agendar cita.']);
     }
 
     $stmt = null;

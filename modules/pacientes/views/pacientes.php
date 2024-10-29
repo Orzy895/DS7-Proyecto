@@ -20,7 +20,7 @@ include "../../../template/head_template.php"
     <label for="seguro">Seguro: </label>
     <input type="text" id="seguro" name="seguro">
 
-    <button type="submit">Agregar departamento</button>
+    <button type="submit">Agregar paciente</button>
 </form>
 <?php
 include "../../../template/foot_template.php"
