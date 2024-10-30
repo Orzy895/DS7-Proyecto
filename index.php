@@ -37,7 +37,7 @@ if (isset($_SESSION['user'])) {
             <a href="modules/departamentos/index.php" class="btn">Departamentos</a>
         </div>
         <div class="seccion bg-sky-600">
-            <img class="img" src="assets/Departamentos.png" alt="Ejemplo">
+            <img class="img" src="assets/especialidades.png" alt="Ejemplo">
             <a href="modules/especialidades/index.php" class="btn">Especialidades</a>
         </div>
     </div>
