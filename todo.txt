@@ -1,0 +1,5 @@
+-tabla de recetas
+-col json diagnostico
+-tabla de historial M-M con paciente
+-cambiar productos por medicamentos con info general
+-enlazar medicamentos con recetas M-M
