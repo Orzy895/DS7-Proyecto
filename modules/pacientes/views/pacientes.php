@@ -3,7 +3,7 @@ include "../../../template/head_template.php"
 ?>
 
 <form action="../controllers/process_addPaciente.php" method="post" novalidate>
-    <h2>Agregar Paciente</h2>
+    <h2 class="text-center text-2xl font-bold mb-4">Agregar Paciente</h2>
 
     <label for="nombre">Nombre: </label>
     <input type="text" id="nombre" name="nombre" required>

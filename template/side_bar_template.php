@@ -6,10 +6,10 @@
         "inventario" => "Inventario",
         "facturacion" => "Facturación",
         "servicios" => "Servicios",
-        "permisos" => "Permisos",
         "personales" => "Personales",
         "pacientes" => "Pacientes",
-        "departamentos" => "Departamentos"
+        "departamentos" => "Departamentos",
+        "especialidades" => "Especialidades"
     ];
 
     foreach ($links as $module => $label) {

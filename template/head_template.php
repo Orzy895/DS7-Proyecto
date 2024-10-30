@@ -18,7 +18,7 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
             box-sizing: border-box;
         }
 
-        .seccion{
+        .seccion {
             display: flex;
             padding: 15px;
             border-radius: 5px;
@@ -28,7 +28,7 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
             align-items: center;
         }
 
-        .seccion a{
+        .seccion a {
             display: flex;
             justify-content: center;
             width: 100%;
@@ -36,7 +36,7 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
             border-radius: 0px 0px 5px 5px;
         }
 
-        .img{
+        .img {
             width: 100%;
             height: 180px;
             object-fit: cover;
@@ -80,7 +80,7 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
             width: 95%;
             display: block;
             padding: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 15px !important;
             border: 1px solid #ccc;
             border-radius: 4px;
         }

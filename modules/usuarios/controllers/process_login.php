@@ -2,12 +2,12 @@
 require_once '../../../db/Database.php';
 include_once '../../../template/head_template.php';
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (isset($_SESSION['user'])) {
     echo "Ya has iniciado sesión.";
-    echo $_SESSION['user'];
-    echo $_SESSION['role'];
     exit();
 }
 
@@ -37,7 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: ../../../index.php");
                 exit();
             } else {
-                die("Contraseña incorrecta");
+                echo "Contraseña incorrecta";
+                exit();
             }
         } else {
             echo "Error al iniciar sesión";

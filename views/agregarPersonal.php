@@ -3,12 +3,11 @@ include_once "../template/head_template.php"
 ?>
 
 <head>
-    <title>Panel de Administración de Personal</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../scripts/agregarPersonal.js"></script>
 </head>
 
-<h1 style="margin-bottom: 8%;">Agregar Personal</h1>
+<h2 class="text-center text-2xl font-bold mb-4">Agregar Personal</h2>
 
 <div>
     <label for="usuario"><strong>Seleccionar Usuario:</strong></label>

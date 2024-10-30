@@ -1,5 +1,6 @@
 <?php
 require_once '../../../db/Database.php';
+include_once '../../../template/head_template.php';
 
 $database = new Database();
 $conn = $database->getConnection();

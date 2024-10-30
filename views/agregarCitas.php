@@ -3,13 +3,12 @@ include_once "../template/head_template.php"
 ?>
 
 <head>
-    <title>Panel de Agendación de Cita Médica</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../scripts/agregarCita.js"></script>
 </head>
 
 <form id="form">
-    <h2>Agregar Cita Médica</h2>
+    <h2 class="text-center text-2xl font-bold mb-4">Agregar Cita Médica</h2>
 
     <label for="servicio">Servicio: </label>
     <select id="servicio" name="servicio" required></select>

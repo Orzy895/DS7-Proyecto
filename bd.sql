@@ -21,10 +21,10 @@ CREATE TABLE Usuarios (
 CREATE TABLE Pacientes (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cedula varchar(10) NOT NULL,
-  nombre varchar(255) NOT NULL.
+  nombre varchar(255) NOT NULL,
   dob timestamp NOT NULL,
   historial varchar(255),
-  seguro varchar(255),
+  seguro varchar(255)
 );
 
 CREATE TABLE Departamento (

@@ -3,7 +3,7 @@ include_once '../../template/head_template.php';
 ?>
 
 <div class="flex flex-col justify-center items-center">
-    <a href="views/departamento.php" class="btn">Crear Departamento</a>
+    <a href="views/departamento.php" class="btn">Agregar Departamento</a>
 </div>
 
 <?php
