@@ -3,8 +3,8 @@
     $links = [
         "usuarios" => "Usuarios",
         "roles" => "Roles",
-        "inventario" => "Inventario",
-        "facturacion" => "Facturación",
+        // "inventario" => "Inventario",
+        // "facturacion" => "Facturación",
         "servicios" => "Servicios",
         "personales" => "Personales",
         "pacientes" => "Pacientes",

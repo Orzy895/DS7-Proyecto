@@ -12,14 +12,14 @@ if (isset($_SESSION['user'])) {
             <img class="img" src="assets/Roles.jpeg" alt="Ejemplo">
             <a href="modules/roles/index.php" class="btn">Roles</a>
         </div>
-        <div class="seccion bg-sky-600">
+        <!-- <div class="seccion bg-sky-600">
             <img class="img" src="assets/Inventario.jpeg" alt="Ejemplo">
             <a href="modules/inventario/index.php" class="btn">Inventario</a>
         </div>
         <div class="seccion bg-sky-600">
             <img class="img" src="assets/Facturacion.jpeg" alt="Ejemplo">
             <a href="modules/facturacion/index.php" class="btn">Facturación</a>
-        </div>
+        </div> -->
         <div class="seccion bg-sky-600">
             <img class="img" src="assets/Servicios.jpeg" alt="Ejemplo">
             <a href="modules/servicios/index.php" class="btn">Servicios</a>

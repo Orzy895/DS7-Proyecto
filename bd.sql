@@ -96,3 +96,36 @@ CREATE TABLE Facturas (
 INSERT INTO `roles` (`nombre`, `descripcion`) VALUES 
 ('USUARIO', 'es un usuario'),
 ('ADMIN', 'es un administrador');
+
+INSERT INTO especialidadesmedicas (nombre, descripcion) VALUES
+('Cardiología', 'Especialidad que se enfoca en el diagnóstico y tratamiento de enfermedades del corazón y del sistema cardiovascular.'),
+('Neurología', 'Especialidad médica que trata trastornos del sistema nervioso central y periférico.'),
+('Dermatología', 'Especialidad dedicada al diagnóstico y tratamiento de enfermedades de la piel, cabello, y uñas.'),
+('Pediatría', 'Especialidad enfocada en la atención médica de bebés, niños y adolescentes.'),
+('Ginecología', 'Especialidad médica que se ocupa de la salud del sistema reproductor femenino.'),
+('Psiquiatría', 'Especialidad médica que se centra en el diagnóstico, tratamiento y prevención de enfermedades mentales.'),
+('Oftalmología', 'Especialidad médica que trata las enfermedades y trastornos de los ojos.'),
+('Endocrinología', 'Especialidad dedicada a las glándulas hormonales y los trastornos hormonales.'),
+('Gastroenterología', 'Especialidad enfocada en el sistema digestivo y sus enfermedades.'),
+('Neumología', 'Especialidad que se enfoca en las enfermedades del sistema respiratorio.'),
+('Reumatología', 'Especialidad dedicada al diagnóstico y tratamiento de enfermedades musculoesqueléticas y autoinmunes.'),
+('Nefrología', 'Especialidad médica que trata las enfermedades de los riñones.'),
+('Oncología', 'Especialidad que se dedica al estudio, diagnóstico y tratamiento del cáncer.'),
+('Medicina Interna', 'Especialidad que abarca el diagnóstico y tratamiento de enfermedades complejas en adultos.'),
+('Otorrinolaringología', 'Especialidad dedicada al tratamiento de enfermedades de oído, nariz y garganta (ORL).');
+
+INSERT INTO departamento (nombre, descripcion) VALUES
+('Ventas', 'Departamento de ventas'),
+('Urgencias', 'Atención inmediata para emergencias y casos críticos.'),
+('Medicina Interna', 'Tratamiento y manejo de enfermedades generales en adultos.'),
+('Pediatría', 'Cuidado y tratamiento de enfermedades en niños y adolescentes.'),
+('Ginecología y Obstetricia', 'Salud reproductiva, control prenatal y atención en maternidad.'),
+('Cardiología', 'Diagnóstico y tratamiento de enfermedades del corazón y sistema circulatorio.'),
+('Neurología', 'Cuidado y tratamiento de enfermedades del sistema nervioso y cerebro.'),
+('Oncología', 'Diagnóstico y tratamiento especializado para el cáncer.'),
+('Psiquiatría', 'Cuidado de la salud mental y tratamiento de trastornos psiquiátricos.'),
+('Radiología', 'Exámenes de diagnóstico por imágenes como rayos X y tomografías.'),
+('Laboratorio', 'Análisis clínicos de sangre, orina y otros fluidos.'),
+('Rehabilitación', 'Terapias de recuperación física para pacientes post-tratamiento.'),
+('Farmacia', 'Suministro y administración de medicamentos.'),
+('Cuidados Intensivos (UCI)', 'Cuidado avanzado y monitoreo constante para pacientes en estado crítico.');

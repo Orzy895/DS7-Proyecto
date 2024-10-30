@@ -4,7 +4,7 @@ include_once "../template/head_template.php"
 
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../controllers/userAdmin.js"></script>
+    <script src="../scripts/userAdmin.js"></script>
 </head>
 
 <h2 class="text-center text-2xl font-bold mb-4">Panel de Administración de Roles</h2>
