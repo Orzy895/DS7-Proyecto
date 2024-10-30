@@ -13,7 +13,7 @@ $(document).ready(function () {
 
   function fetchUserDetails(userId) {
     $.ajax({
-      url: "ds7-Proyecto/modules/usuarios/controllers/process_getUser.php",
+      url: "../modules/usuarios/controllers/process_getUser.php",
       type: "GET",
       data: { id: userId },
       dataType: "json",
@@ -42,7 +42,7 @@ $(document).ready(function () {
 
   function loadUsers() {
     $.ajax({
-      url: "../../usuarios/controllers/process_getUsers.php",
+      url: "../modules/usuarios/controllers/process_getUsers.php",
       type: "GET",
       dataType: "json",
       success: function (data) {
@@ -67,7 +67,7 @@ $(document).ready(function () {
 
   function loadRoles() {
     $.ajax({
-      url: "process_getRoles.php",
+      url: "../modules/roles/controllers/process_getRoles.php",
       type: "GET",
       dataType: "json",
       success: function (roles) {
@@ -97,7 +97,7 @@ $(document).ready(function () {
     };
 
     $.ajax({
-      url: "d7-Proyecto/modules/usuarios/controllers/process_editUser.php",
+      url: "../modules/usuarios/controllers/process_editUser.php",
       type: "POST",
       data: formData,
       dataType: "json",
@@ -125,7 +125,7 @@ $(document).ready(function () {
 
   function deleteUser(userId) {
     $.ajax({
-      url: "d7-Proyecto/modules/usuarios/controllers/process_deleteUser.php",
+      url: "../modules/usuarios/controllers/process_deleteUser.php",
       type: "POST",
       data: { id: userId },
       dataType: "json",
