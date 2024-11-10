@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $(".especialidades-container").hide();
+  $(".cant-container").hide()
   loadUsers();
   loadDepartamentos();
   loadEspecialidades();
@@ -88,7 +89,9 @@ $(document).ready(function () {
     const selectedDept = $("#departamento option:selected").text();
     if (selectedDept === "Ventas" || selectedDept === "Farmacia") {
       $(".especialidades-container").hide();
+      $(".cant-container").hide()
     } else {
+      $(".cant-container").show()
       $(".especialidades-container").show();
     }
   }
