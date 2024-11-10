@@ -64,7 +64,7 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
             background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
-            margin: 2% 30%;
+            margin: 2% 5%;
         }
 
         label {
@@ -80,7 +80,6 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
             width: 95%;
             display: block;
             padding: 8px;
-            margin-bottom: 15px !important;
             border: 1px solid #ccc;
             border-radius: 4px;
         }

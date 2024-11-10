@@ -23,8 +23,20 @@ CREATE TABLE Pacientes (
   cedula varchar(10) NOT NULL,
   nombre varchar(255) NOT NULL,
   dob timestamp NOT NULL,
-  historial varchar(255),
   seguro varchar(255)
+);
+
+CREATE TABLE HistorialMedico (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  registro TEXT NOT NULL
+);
+
+CREATE TABLE HistorialPaciente (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  paciente_id INT NOT NULL,
+  historial_id INT NOT NULL,
+  FOREIGN KEY(paciente_id) REFERENCES Pacientes(id),
+  FOREIGN KEY(historial_id) REFERENCES HistorialMedico(id)
 );
 
 CREATE TABLE Departamento (
@@ -40,6 +52,16 @@ CREATE TABLE Personales (
   departamento_id INT NOT NULL,
   FOREIGN KEY(usuario_id) REFERENCES Usuarios(id),
   FOREIGN KEY(departamento_id) REFERENCES Departamento(id)
+);
+
+CREATE TABLE HorarioMedico (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT NOT NULL,
+  dia_semana ENUM('Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo') NOT NULL,
+  hora_inicio TIME NOT NULL,
+  hora_fin TIME NOT NULL,
+  max_citas INT NOT NULL, 
+  FOREIGN KEY (usuario_id) REFERENCES Personales(id)
 );
 
 CREATE TABLE EspecialidadesMedicas (
@@ -69,17 +91,10 @@ CREATE TABLE Citas (
   paciente_id INT NOT NULL,
   medico_id INT NOT NULL,
   servicio_id INT NOT NULL,
+  diagnostico TEXT,
   FOREIGN KEY(paciente_id) REFERENCES Pacientes(id),
   FOREIGN KEY(medico_id) REFERENCES Personales(id),
   FOREIGN KEY(servicio_id) REFERENCES Servicios(id)
-);
-
-CREATE TABLE Productos (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  tipo varchar(255) NOT NULL,
-  nombre varchar(255) NOT NULL,
-  cantidad INT NOT NULL,
-  precio DECIMAL(10, 2)
 );
 
 CREATE TABLE Facturas (
@@ -90,6 +105,29 @@ CREATE TABLE Facturas (
   servicio_id INT,
   FOREIGN KEY(cajero_id) REFERENCES Personales(id),
   FOREIGN KEY(servicio_id) REFERENCES Servicios(id)
+);
+
+CREATE TABLE Recetas (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cita_id INT,
+  descripcion TEXT,
+  FOREIGN KEY(cita_id) REFERENCES Citas(id)
+);
+
+CREATE TABLE Medicamentos (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  tipo varchar(255) NOT NULL,
+  nombre varchar(255) NOT NULL,
+  cantidad INT NOT NULL,
+  precio DECIMAL(10, 2)
+);
+
+CREATE TABLE MedicamentosReceetas (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  receta_id INT,
+  medicamento_id INT,
+  FOREIGN KEY(receta_id) REFERENCES Recetas(id),
+  FOREIGN KEY(medicamento_id) REFERENCES Medicamentos(id)
 );
 
 

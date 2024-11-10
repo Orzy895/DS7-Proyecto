@@ -69,10 +69,10 @@ $(document).ready(function () {
           $("#especialidades").empty();
           especialidades.forEach(function (especialidad) {
             $("#especialidades").append(`
-                          <label>
-                              <input type="checkbox" name="especialidades[]" value="${especialidad.id}"> ${especialidad.nombre}
-                          </label><br>
-                      `);
+              <label class="especialidad-item">
+                <input type="checkbox" name="especialidades[]" value="${especialidad.id}"> ${especialidad.nombre}
+              </label>
+            `);
           });
         } else {
           $("#message").text("Error al obtener las especialidades.");
@@ -100,7 +100,22 @@ $(document).ready(function () {
       posicion: $("#posicion").val(),
       departamento: $("#departamento").val(),
       usuario: $("#usuario").val(),
+      horario: [],
+      max_citas: $("#max_citas").val()
     };
+
+    var startTime = $("input[name='start_time[]']").val();
+    var endTime = $("input[name='end_time[]']").val();
+
+    $("input[name='days[]']:checked").each(function () {
+      var day = $(this).val();
+
+      userData.horario.push({
+        day: day,
+        start_time: startTime,
+        end_time: endTime
+      });
+    });
 
     $.ajax({
       url: "../modules/personales/controllers/process_addPersonal.php",
@@ -132,7 +147,28 @@ $(document).ready(function () {
               }
             },
             error: function () {
-              $("#message").text("Error en la solicitud de especialidades.");
+              $("#message").text("Error en la agregación de especialidades.");
+            }
+          });
+
+          $.ajax({
+            url: "../modules/personales/controllers/process_addHorario.php",
+            type: "POST",
+            data: {
+              usuario: response.userId,
+              horario: userData.horario,
+              max_citas: userData.max_citas
+            },
+            dataType: "json",
+            success: function (horarioResponse) {
+              if (horarioResponse.success) {
+                $("#message").text("Horario añadido con éxito.");
+              } else {
+                $("#message").text("Error al PUTA horario.");
+              }
+            },
+            error: function () {
+              $("#message").text("Error en la agregación de horario.");
             }
           });
         } else {
@@ -145,5 +181,5 @@ $(document).ready(function () {
     });
   });
 
-  toggleEspecialidades();
+
 });
