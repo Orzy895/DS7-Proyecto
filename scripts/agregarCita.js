@@ -1,6 +1,5 @@
 $(document).ready(function () {
   loadMedics();
-  loadPatients();
   loadServices();
   setMinDate();
 
@@ -22,13 +21,14 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         if (response.success) {
-          $("#message").text("Cita agendada con éxito.");
+          alert(response.message)
+          $("#form").reset()
         } else {
-          $("#message").text("Error al agendar la cita.");
+          alert(response.message)
         }
       },
       error: function () {
-        $("#message").text("Error en la solicitud de creación de la cita.");
+        alert("Error en la solicitud de creación de la cita.")
       }
     });
   });
@@ -53,32 +53,7 @@ $(document).ready(function () {
         }
       },
       error: function () {
-        $("#message").text("Error en la solicitud de médicos.");
-      },
-    });
-  }
-
-  function loadPatients() {
-    $.ajax({
-      url: "../modules/pacientes/controllers/process_getPacientes.php",
-      type: "GET",
-      dataType: "json",
-      success: function (data) {
-        $("#paciente")
-          .empty()
-          .append('<option value="">Seleccione un paciente</option>');
-        if (data && data.length > 0) {
-          data.forEach(function (paciente) {
-            $("#paciente").append(
-              `<option value="${paciente.id}">${paciente.nombre}</option>`
-            );
-          });
-        } else {
-          $("#paciente").append("<option>No se encontraron pacientes.</option>");
-        }
-      },
-      error: function () {
-        $("#message").text("Error en la solicitud de pacientes.");
+        alert("Error en la solicitud de médicos.")
       },
     });
   }
@@ -103,7 +78,7 @@ $(document).ready(function () {
         }
       },
       error: function () {
-        $("#message").text("Error en la solicitud de servicios.");
+        alert("Error en la solicitud de servicios.")
       },
     });
   }

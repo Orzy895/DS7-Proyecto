@@ -7,7 +7,7 @@ $conn = $database->getConnection();
 
 try {
     $query = "
-        SELECT Usuarios.id, Usuarios.nombre 
+        SELECT DISTINCT Usuarios.id, Usuarios.nombre 
         FROM Personales
         JOIN Usuarios ON Personales.usuario_id = Usuarios.id
         WHERE Personales.departamento_id NOT IN (1, 13)

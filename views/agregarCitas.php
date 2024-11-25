@@ -13,8 +13,8 @@ include_once "../template/head_template.php"
     <label for="servicio">Servicio: </label>
     <select id="servicio" name="servicio" required></select>
 
-    <label for="paciente">Paciente: </label>
-    <select id="paciente" name="paciente" required></select>
+    <label for="paciente">Cédula del Paciente: </label>
+    <input type="text" id="paciente" name="paciente" required placeholder="Ingrese la cédula del paciente">
 
     <label for="medico">Médico: </label>
     <select id="medico" name="medico" required></select>
@@ -27,7 +27,6 @@ include_once "../template/head_template.php"
 
     <button type="submit">Agregar cita</button>
 </form>
-<p id="message"></p>
 <?php
 include "../template/foot_template.php"
 

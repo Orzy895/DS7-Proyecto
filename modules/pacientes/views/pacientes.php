@@ -14,9 +14,6 @@ include "../../../template/head_template.php"
     <label for="dob">Fecha de Nacimiento:</label>
     <input type="date" id="dob" name="dob" required>
 
-    <label for="historial">Historial: </label>
-    <textarea name="historial" id="historial" rows="4" cols="50"></textarea>
-
     <label for="seguro">Seguro: </label>
     <input type="text" id="seguro" name="seguro">
 
