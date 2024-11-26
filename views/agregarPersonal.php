@@ -72,7 +72,7 @@ include_once "../template/head_template.php"
 
     <div class="mb-4 cant-container">
         <label for="max_citas"><strong>Máximo de Citas por Día:</strong></label>
-        <input type="number" id="max_citas" name="max_citas" required min="0">
+        <input type="number" id="max_citas" name="max_citas" min="0">
     </div>
 
     <div class="flex justify-center mt-6">

@@ -7,7 +7,7 @@ include_once "../template/head_template.php"
     <script src="../scripts/userAdmin.js"></script>
 </head>
 
-<h2 class="text-center text-2xl font-bold mb-4">Panel de Administración de Roles</h2>
+<h2 class="text-center text-2xl font-bold mb-4">Panel de Administración de Usuario</h2>
 
 <div>
     <label for="userList"><strong>Seleccionar Usuario:</strong></label>

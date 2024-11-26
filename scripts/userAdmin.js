@@ -24,11 +24,11 @@ $(document).ready(function () {
           $("#cedula").val(data.cedula);
           $("#role").val(data.role_id);
         } else {
-          $("#message").text("Error al obtener los datos del usuario.");
+          alert("Error al obtener los datos del usuario.");
         }
       },
       error: function () {
-        $("#message").text("Error en la solicitud de datos.");
+        alert("Error en la solicitud de datos.");
       },
     });
   }
@@ -60,7 +60,7 @@ $(document).ready(function () {
         }
       },
       error: function () {
-        $("#message").text("Error en la solicitud de usuarios.");
+        alert("Error en la solicitud de usuarios.");
       },
     });
   }
@@ -76,11 +76,11 @@ $(document).ready(function () {
             $("#role").append(new Option(role.nombre, role.id));
           });
         } else {
-          $("#message").text("Error al obtener los roles.");
+          alert("Error al obtener los roles.");
         }
       },
       error: function () {
-        $("#message").text("Error en la solicitud de roles.");
+        alert("Error en la solicitud de roles.");
       },
     });
   }
@@ -103,13 +103,13 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         if (response.success) {
-          $("#message").text("Perfil actualizado.");
+          alert("Perfil actualizado.");
         } else {
-          $("#message").text("Error al actualizar el perfil.");
+          alert("Error al actualizar el perfil.");
         }
       },
       error: function () {
-        $("#message").text("Error en la solicitud.");
+        alert("Error en la solicitud.");
       },
     });
   });
@@ -119,7 +119,7 @@ $(document).ready(function () {
     if (userId) {
       deleteUser(userId);
     } else {
-      $("#message").text("Seleccione un usuario para eliminar.");
+      alert("Seleccione un usuario para eliminar.");
     }
   });
 
@@ -131,15 +131,15 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         if (response.success) {
-          $("#message").text("Usuario eliminado.");
+          alert("Usuario eliminado.");
           loadUsers();
           clearUserDetails();
         } else {
-          $("#message").text("Error al eliminar el usuario.");
+          alert("Error al eliminar el usuario.");
         }
       },
       error: function () {
-        $("#message").text("Error en la solicitud de eliminación.");
+        alert("Error en la solicitud de eliminación.");
       },
     });
   }

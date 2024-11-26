@@ -4,6 +4,7 @@ $(document).ready(function () {
   loadUsers();
   loadDepartamentos();
   loadEspecialidades();
+  let medico = false;
 
   $("#userList").on("change", function () {
     var userId = $(this).val();
@@ -34,7 +35,7 @@ $(document).ready(function () {
         }
       },
       error: function () {
-        $("#message").text("Error en la solicitud de usuarios.");
+        alert("Error en la solicitud de usuarios.");
       },
     });
   }
@@ -51,11 +52,11 @@ $(document).ready(function () {
           });
           $("#departamento").on("change", toggleEspecialidades);
         } else {
-          $("#message").text("Error al obtener los departamentos.");
+          alert("Error al obtener los departamentos.")
         }
       },
       error: function () {
-        $("#message").text("Error en la solicitud de departamentos.");
+        alert("Error en la solicitud de departamentos.");
       },
     });
   }
@@ -76,11 +77,11 @@ $(document).ready(function () {
             `);
           });
         } else {
-          $("#message").text("Error al obtener las especialidades.");
+          alert("Error al obtener las especialidades.");
         }
       },
       error: function () {
-        $("#message").text("Error en la solicitud de especialidades.");
+        alert("Error en la solicitud de especialidades.");
       },
     });
   }
@@ -90,9 +91,13 @@ $(document).ready(function () {
     if (selectedDept === "Ventas" || selectedDept === "Farmacia") {
       $(".especialidades-container").hide();
       $(".cant-container").hide()
+      $(".times-container").hide();
+      medico = false;
     } else {
       $(".cant-container").show()
       $(".especialidades-container").show();
+      $(".times-container").show();
+      medico = true;
     }
   }
 
@@ -127,59 +132,62 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         if (response.success && response.userId) {
-          $("#message").text("Usuario creado con éxito.");
+          alert("Usuario creado con éxito.");
 
           var especialidades = [];
           $("input[name='especialidades[]']:checked").each(function () {
             especialidades.push($(this).val());
           });
 
-          $.ajax({
-            url: "../modules/personales/controllers/process_addEspecialidadesMedicas.php",
-            type: "POST",
-            data: {
-              usuario: response.userId,
-              especialidades: especialidades
-            },
-            dataType: "json",
-            success: function (especialidadResponse) {
-              if (especialidadResponse.success) {
-                $("#message").text("Especialidades añadidas con éxito.");
-              } else {
-                $("#message").text("Error al añadir especialidades.");
-              }
-            },
-            error: function () {
-              $("#message").text("Error en la agregación de especialidades.");
-            }
-          });
+          if (medico) {
+            $.ajax({
+              url: "../modules/personales/controllers/process_addEspecialidadesMedicas.php",
+              type: "POST",
+              data: {
+                usuario: response.userId,
+                especialidades: especialidades
+              },
+              dataType: "json",
+              success: function (especialidadResponse) {
+                if (especialidadResponse.success) {
 
-          $.ajax({
-            url: "../modules/personales/controllers/process_addHorario.php",
-            type: "POST",
-            data: {
-              usuario: response.userId,
-              horario: userData.horario,
-              max_citas: userData.max_citas
-            },
-            dataType: "json",
-            success: function (horarioResponse) {
-              if (horarioResponse.success) {
-                $("#message").text("Horario añadido con éxito.");
-              } else {
-                $("#message").text("Error al PUTA horario.");
+                } else {
+                  alert("Error al añadir especialidades.");
+                }
+              },
+              error: function () {
+                alert("Error en la agregación de especialidades.");
               }
-            },
-            error: function () {
-              $("#message").text("Error en la agregación de horario.");
-            }
-          });
+            });
+
+            $.ajax({
+              url: "../modules/personales/controllers/process_addHorario.php",
+              type: "POST",
+              data: {
+                usuario: response.userId,
+                horario: userData.horario,
+                max_citas: userData.max_citas
+              },
+              dataType: "json",
+              success: function (horarioResponse) {
+                if (horarioResponse.success) {
+
+                } else {
+                  alert("Error al añadir horario.");
+                }
+              },
+              error: function () {
+                alert("Error en la agregación de horario.");
+              }
+            });
+          }
+          alert("Usuario creado con éxito")
         } else {
-          $("#message").text("Error al crear el usuario.");
+          alert("Error al crear el usuario.");
         }
       },
       error: function () {
-        $("#message").text("Error en la solicitud de creación del usuario.");
+        alert("Error en la solicitud de creación del usuario.");
       }
     });
   });
