@@ -11,7 +11,7 @@ include_once "../../../template/head_template.php"
     <label for="passw">Contraseña</label>
     <input type="password" id="passw" name="passw" required>
 
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between mt-4">
         <button type="submit">Iniciar Sesión</button>
         <a href="signup.php" class="pr-5">¿No tienes cuenta?</a>
     </div>

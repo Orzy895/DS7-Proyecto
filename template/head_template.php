@@ -65,6 +65,9 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
             padding: 20px;
             border-radius: 8px;
             margin: 2% 5%;
+            max-width: 576px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         label {

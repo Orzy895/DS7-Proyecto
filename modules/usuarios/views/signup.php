@@ -4,7 +4,7 @@ include_once "../../../template/head_template.php"
 ?>
 
 <form action="../controllers/process_signup.php" method="post" novalidate>
-    <h2 class="text-center text-2xl font-bold mb-4">Registro de Usuario</h2>
+    <h2 class=" text-center text-2xl font-bold mb-4">Registro de Usuario</h2>
 
     <label for="nombre">Nombre</label>
     <input type="text" id="nombre" name="nombre" required>
@@ -21,7 +21,7 @@ include_once "../../../template/head_template.php"
     <label for="passwConf">Confirmar Contraseña</label>
     <input type="password" id="passwConf" name="passwConf" required>
 
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between mt-4">
         <button type="submit">Crear Usuario</button>
         <a href="login.php" class="pr-5">¿Ya tienes cuenta?</a>
     </div>
