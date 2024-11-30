@@ -9,7 +9,8 @@
         "personales" => "Personales",
         "pacientes" => "Pacientes",
         "departamentos" => "Departamentos",
-        "especialidades" => "Especialidades"
+        "especialidades" => "Especialidades",
+        "medicamentos" => "Medicamentos",
     ];
 
     foreach ($links as $module => $label) {
