@@ -90,11 +90,18 @@ CREATE TABLE Citas (
   lugar varchar(255) NOT NULL,
   paciente_id INT NOT NULL,
   medico_id INT NOT NULL,
-  servicio_id INT NOT NULL,
   diagnostico TEXT,
+  estado BOOLEAN DEFAULT TRUE,
   FOREIGN KEY(paciente_id) REFERENCES Pacientes(id),
-  FOREIGN KEY(medico_id) REFERENCES Personales(id),
-  FOREIGN KEY(servicio_id) REFERENCES Servicios(id)
+  FOREIGN KEY(medico_id) REFERENCES Personales(id)
+);
+
+CREATE TABLE Citas_Servicios (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cita_id INT NOT NULL,
+  servicio_id INT NOT NULL,
+  FOREIGN KEY (cita_id) REFERENCES Citas(id),
+  FOREIGN KEY (servicio_id) REFERENCES Servicios(id)
 );
 
 CREATE TABLE Facturas (

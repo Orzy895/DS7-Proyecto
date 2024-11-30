@@ -132,7 +132,7 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         if (response.success && response.userId) {
-          alert("Usuario creado con éxito.");
+          alert("Personal creado con éxito.");
 
           var especialidades = [];
           $("input[name='especialidades[]']:checked").each(function () {

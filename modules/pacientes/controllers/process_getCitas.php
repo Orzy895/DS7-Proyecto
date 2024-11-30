@@ -18,6 +18,7 @@ try {
         INNER JOIN Pacientes p ON c.paciente_id = p.id
         INNER JOIN Personales m ON c.medico_id = m.id
         INNER JOIN Usuarios u ON m.id = u.id
+        WHERE c.estado = true
         ORDER BY c.tiempo ASC
     ";
     $stmt = $conn->prepare($query);

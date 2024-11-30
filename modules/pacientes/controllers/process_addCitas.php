@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     try {
-        // Obtener id de paciente
+        //Obtener paciente seleccionado
         $queryPaciente = "SELECT id FROM Pacientes WHERE cedula = :paciente_cedula";
         $stmtPaciente = $conn->prepare($queryPaciente);
         $stmtPaciente->bindParam(":paciente_cedula", $paciente_cedula);
@@ -28,11 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $paciente_id = $paciente['id'];
 
-        // Obtener dias de la semana y la hora de la cita
+        //Obtener dias de la semana en ingles y traducirlos a español
         $dia_semana = date('l', strtotime($tiempo));
-        $hora_cita = date('H:i:s', strtotime($tiempo));
-
-        // Traducir los dias de la semana a español
         $dias_map = [
             'Monday' => 'Lunes',
             'Tuesday' => 'Martes',
@@ -44,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ];
         $dia_semana = $dias_map[$dia_semana];
 
-        // Verificar el horario del medico en ese dia
+        //Verificar si esta disponible ese dia
         $queryHorario = "SELECT * FROM HorarioMedico 
                          WHERE usuario_id = :medico_id 
                          AND dia_semana = :dia_semana";
@@ -60,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die(json_encode(['success' => false, 'message' => 'El médico no tiene disponibilidad en este horario.']));
         }
 
-        // Verificar disponibilidad de cupos para cita
+        //Verificar disponibilidad de cupo
         $queryCitas = "SELECT COUNT(*) AS total_citas FROM Citas 
                        WHERE medico_id = :medico_id AND DATE(tiempo) = DATE(:tiempo)";
         $stmtCitas = $conn->prepare($queryCitas);
@@ -74,16 +71,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die(json_encode(['success' => false, 'message' => 'No hay cupos disponibles para este médico en la fecha seleccionada.']));
         }
 
-        // Agregar cita
-        $queryAgregarCita = "INSERT INTO Citas (tiempo, lugar, paciente_id, medico_id, servicio_id) 
-                             VALUES (:tiempo, :lugar, :paciente_id, :medico_id, :servicio_id)";
+        //Agregar cita
+        $queryAgregarCita = "INSERT INTO Citas (tiempo, lugar, paciente_id, medico_id) 
+                             VALUES (:tiempo, :lugar, :paciente_id, :medico_id)";
         $stmtAgregarCita = $conn->prepare($queryAgregarCita);
         $stmtAgregarCita->bindParam(":tiempo", $tiempo);
         $stmtAgregarCita->bindParam(":lugar", $lugar);
         $stmtAgregarCita->bindParam(":paciente_id", $paciente_id);
         $stmtAgregarCita->bindParam(":medico_id", $medico_id);
-        $stmtAgregarCita->bindParam(":servicio_id", $servicio_id);
         $stmtAgregarCita->execute();
+
+        $cita_id = $conn->lastInsertId();
+
+        $queryVerificarServicio = "SELECT COUNT(*) FROM Servicios WHERE id = :servicio_id";
+        $stmtVerificarServicio = $conn->prepare($queryVerificarServicio);
+        $stmtVerificarServicio->bindParam(":servicio_id", $servicio_id);
+        $stmtVerificarServicio->execute();
+        $existeServicio = $stmtVerificarServicio->fetchColumn();
+
+        //Agregar servicio de la cita
+        $queryAgregarServicio = "INSERT INTO Citas_Servicios (cita_id, servicio_id) 
+                                 VALUES (:cita_id, :servicio_id)";
+        $stmtAgregarServicio = $conn->prepare($queryAgregarServicio);
+        $stmtAgregarServicio->bindParam(":cita_id", $cita_id);
+        $stmtAgregarServicio->bindParam(":servicio_id", $servicio_id);
+        $stmtAgregarServicio->execute();
 
         echo json_encode(['success' => true, 'message' => 'Cita agendada con éxito.']);
     } catch (PDOException $exception) {

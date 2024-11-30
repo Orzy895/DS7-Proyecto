@@ -14,16 +14,17 @@ if ($cita_id > 0) {
             SELECT 
                 c.id AS cita_id, c.tiempo, c.lugar, 
                 p.nombre AS paciente_nombre, p.cedula AS paciente_cedula, 
-                u.nombre AS medico_nombre, s.nombre AS servicio_nombre, 
+                u.nombre AS medico_nombre,
+                GROUP_CONCAT(s.nombre ORDER BY s.nombre ASC SEPARATOR ', ') AS servicios_nombre,
                 c.diagnostico
             FROM citas c
             JOIN pacientes p ON c.paciente_id = p.id
             JOIN personales m ON c.medico_id = m.id
             JOIN usuarios u ON m.usuario_id = u.id
-            JOIN servicios s ON c.servicio_id = s.id
+            JOIN citas_servicios cs ON c.id = cs.cita_id
+            JOIN servicios s ON cs.servicio_id = s.id
             WHERE c.id = :cita_id
         ";
-        
 
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':cita_id', $cita_id, PDO::PARAM_INT);
@@ -43,4 +44,3 @@ if ($cita_id > 0) {
 }
 
 $conn = null;
-?>
