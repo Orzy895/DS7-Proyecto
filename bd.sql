@@ -133,6 +133,7 @@ CREATE TABLE MedicamentosReceetas (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   receta_id INT,
   medicamento_id INT,
+  cantidad INT,
   FOREIGN KEY(receta_id) REFERENCES Recetas(id),
   FOREIGN KEY(medicamento_id) REFERENCES Medicamentos(id)
 );
