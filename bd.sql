@@ -174,3 +174,14 @@ INSERT INTO departamento (nombre, descripcion) VALUES
 ('Rehabilitación', 'Terapias de recuperación física para pacientes post-tratamiento.'),
 ('Farmacia', 'Suministro y administración de medicamentos.'),
 ('Cuidados Intensivos (UCI)', 'Cuidado avanzado y monitoreo constante para pacientes en estado crítico.');
+
+INSERT INTO Servicios (nombre, precio) VALUES
+('Cita Médica', 50.00),
+('Vacuna contra la gripe', 20.00),
+('Examen de sangre', 30.00),
+('Examen de orina', 15.00),
+('Consulta odontológica', 40.00),
+('Chequeo general', 60.00),
+('Consulta dermatológica', 55.00),
+('Vacuna contra el COVID-19', 25.00),
+('Examen de rayos X', 70.00),
