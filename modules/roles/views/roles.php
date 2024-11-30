@@ -11,7 +11,7 @@ include_once "../../../template/head_template.php"
     <label for="desc">Descripción</label>
     <input type="text" id="desc" name="desc" required>
 
-    <button type="submit">Agregar rol</button>
+    <button type="submit" class="mt-4">Agregar rol</button>
 </form>
 <?php
 include_once "../../../template/foot_template.php"

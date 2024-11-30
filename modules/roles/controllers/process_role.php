@@ -33,3 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = null;
     $conn = null;
 }
+?>
+<br>
+<a href="/ds7-Proyecto/index.php" class="underline text-[-webkit-link]">Volver a la página de inicio</a>

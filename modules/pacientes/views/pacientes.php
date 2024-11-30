@@ -17,7 +17,7 @@ include "../../../template/head_template.php"
     <label for="seguro">Seguro: </label>
     <input type="text" id="seguro" name="seguro">
 
-    <button type="submit">Agregar paciente</button>
+    <button type="submit" class="mt-4">Agregar paciente</button>
 </form>
 <?php
 include "../../../template/foot_template.php"

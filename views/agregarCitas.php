@@ -25,7 +25,7 @@ include_once "../template/head_template.php"
     <label for="lugar">Lugar: </label>
     <input type="text" id="lugar" name="lugar">
 
-    <button type="submit">Agregar cita</button>
+    <button type="submit" class="mt-4">Agregar Cita</button>
 </form>
 <?php
 include "../template/foot_template.php"

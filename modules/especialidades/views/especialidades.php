@@ -11,7 +11,7 @@ include "../../../template/head_template.php"
     <label for="desc">Descripción</label>
     <input type="text" id="desc" name="desc" required>
 
-    <button type="submit">Agregar especialidad</button>
+    <button type="submit" class="mt-4">Agregar especialidad</button>
 </form>
 <?php
 include "../../../template/foot_template.php"

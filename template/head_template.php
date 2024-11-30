@@ -79,6 +79,7 @@ session_start();  // Ensure sessions are started before accessing $_SESSION
         input[type="number"],
         input[type="email"],
         input[type="password"],
+        input[type="date"],
         select {
             width: 95%;
             display: block;
