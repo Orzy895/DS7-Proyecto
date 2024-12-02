@@ -3,7 +3,8 @@ include_once '../../template/head_template.php';
 ?>
 
 <div class="flex flex-col justify-center items-center">
-    <a href="views/crearFactura.php" class="btn">Crear Factura</a>
+    <a href="views/crearFacturaCita.php" class="btn">Facturar Cita</a>
+
 </div>
 
 <?php

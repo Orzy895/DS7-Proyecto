@@ -92,6 +92,7 @@ CREATE TABLE Citas (
   medico_id INT NOT NULL,
   diagnostico TEXT,
   estado BOOLEAN DEFAULT TRUE,
+  pagado BOOLEAN DEFAULT FALSE,
   FOREIGN KEY(paciente_id) REFERENCES Pacientes(id),
   FOREIGN KEY(medico_id) REFERENCES Personales(id)
 );
