@@ -18,13 +18,13 @@ include_once "../../../template/head_template.php"
 
 <form id="updateProfileForm">
     <label for="nombre">Nombre</label>
-    <input type="text" id="nombre" name="nombre" required>
+    <input type="text" id="nombre" name="nombre" readonly>
 
     <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
+    <input type="email" id="email" name="email" readonly>
 
     <label for="cedula">Cédula</label>
-    <input type="text" id="cedula" name="cedula" required>
+    <input type="text" id="cedula" name="cedula" readonly>
 
     <label for="role">Role</label>
     <select id="role" name="role" required></select>

@@ -96,28 +96,32 @@ $(document).ready(function () {
       userId: $("#userList").val(),
     };
 
-    $.ajax({
-      url: "../modules/usuarios/controllers/process_editUser.php",
-      type: "POST",
-      data: formData,
-      dataType: "json",
-      success: function (response) {
-        if (response.success) {
-          alert("Perfil actualizado.");
-        } else {
-          alert("Error al actualizar el perfil.");
-        }
-      },
-      error: function () {
-        alert("Error en la solicitud.");
-      },
-    });
+    if (confirm("¿Está seguro de que desea actualizar este usuario?")) {
+      $.ajax({
+        url: "../modules/usuarios/controllers/process_editUser.php",
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        success: function (response) {
+          if (response.success) {
+            alert("Perfil actualizado.");
+          } else {
+            alert("Error al actualizar el perfil.");
+          }
+        },
+        error: function () {
+          alert("Error en la solicitud.");
+        },
+      });
+    }
   });
 
   $("#deleteUserButton").on("click", function () {
     var userId = $("#userList").val();
     if (userId) {
-      deleteUser(userId);
+      if (confirm("¿Está seguro de que desea eliminar este usuario?")) {
+        deleteUser(userId);
+      }
     } else {
       alert("Seleccione un usuario para eliminar.");
     }
