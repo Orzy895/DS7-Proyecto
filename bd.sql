@@ -185,4 +185,4 @@ INSERT INTO Servicios (nombre, precio) VALUES
 ('Chequeo general', 60.00),
 ('Consulta dermatológica', 55.00),
 ('Vacuna contra el COVID-19', 25.00),
-('Examen de rayos X', 70.00),
+('Examen de rayos X', 70.00);
