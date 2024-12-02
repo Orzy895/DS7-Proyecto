@@ -13,14 +13,26 @@
         <p class="text-gray-700 mb-2" id="pacienteNombre"><strong>Paciente:</strong> Cargando...</p>
         <p class="text-gray-700 mb-2" id="medicoNombre"><strong>Médico:</strong> Cargando...</p>
         <p class="text-gray-700 mb-2" id="servicioNombre"><strong>Servicio:</strong> Cargando...</p>
+
         <div class="mb-4">
             <label for="citaDiagnostico" class="text-gray-700"><strong>Diagnóstico:</strong></label>
             <textarea id="citaDiagnostico" class="w-full mt-2 p-2 border border-gray-300 rounded" rows="4" placeholder="Escriba el diagnóstico aquí..."></textarea>
         </div>
+
         <div class="mb-4 flex gap-x-2 justify-end">
             <button id="btnGuardarDiagnostico" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
                 Guardar Diagnóstico
             </button>
+        </div>
+
+        <div id="recetas" class="mt-6">
+            <h3 class="text-lg font-semibold mb-4">Recetas</h3>
+            <ul id="recetaList" class="list-disc pl-5 text-gray-700">
+
+            </ul>
+        </div>
+
+        <div class="mb-4 flex gap-x-2 justify-end">
             <button id="btnAgregarReceta" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700 transition">
                 Agregar Receta
             </button>
@@ -43,7 +55,7 @@
     </div>
 </div>
 
-<!--Reagendar cita-->
+<!-- Modal for Reagendar Cita -->
 <div id="modalReagendar" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
     <div class="bg-white p-6 rounded-lg shadow-md w-96">
         <h3 class="text-xl font-semibold mb-4">Reagendar Cita</h3>
@@ -60,7 +72,7 @@
     </div>
 </div>
 
-<!--Agregar servicio extra-->
+<!-- Modal for Adding Extra Service -->
 <div id="modalAgregarServicio" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
     <div class="bg-white p-6 rounded-lg shadow-md w-96">
         <h3 class="text-xl font-semibold mb-4">Agregar Servicio</h3>

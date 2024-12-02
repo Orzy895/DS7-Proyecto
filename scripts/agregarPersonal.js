@@ -132,8 +132,6 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         if (response.success && response.userId) {
-          alert("Personal creado con éxito.");
-
           var especialidades = [];
           $("input[name='especialidades[]']:checked").each(function () {
             especialidades.push($(this).val());
@@ -181,7 +179,7 @@ $(document).ready(function () {
               }
             });
           }
-          alert("Usuario creado con éxito")
+          alert("Personal agregado con éxito")
         } else {
           alert("Error al crear el usuario.");
         }

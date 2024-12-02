@@ -17,7 +17,7 @@ include "../../../template/head_template.php";
             </tr>
         </thead>
         <tbody id="medicamentosTableBody">
-            <!-- Medicamentos data will be inserted here -->
+            
         </tbody>
     </table>
 </div>
@@ -103,7 +103,7 @@ include "../../../template/head_template.php";
                 if (data.success) {
                     document.getElementById('message').textContent = 'Medicamento actualizado.';
                     document.getElementById('editModal').classList.add('hidden');
-                    location.reload(); // Reload the page to see the updated data
+                    location.reload();
                 } else {
                     document.getElementById('message').textContent = 'Error al actualizar el medicamento.';
                 }

@@ -185,4 +185,12 @@ INSERT INTO Servicios (nombre, precio) VALUES
 ('Chequeo general', 60.00),
 ('Consulta dermatológica', 55.00),
 ('Vacuna contra el COVID-19', 25.00),
-('Examen de rayos X', 70.00);
+('Examen de rayos X', 70.00),
+('Farmacia', 0.00);
+
+INSERT INTO Medicamentos (tipo, nombre, cantidad, precio) VALUES
+('Analgésico', 'Paracetamol', 50, 3.50),
+('Antibiótico', 'Amoxicilina', 30, 7.25),
+('Antiinflamatorio', 'Ibuprofeno', 20, 5.00),
+('Antihistamínico', 'Loratadina', 15, 4.20),
+('Antipirético', 'Aspirina', 40, 2.75);

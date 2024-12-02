@@ -23,6 +23,7 @@ $(document).ready(function () {
                     $("#servicioNombre").html(`<strong>Servicio:</strong> ${cita.servicios_nombre}`);
                     $("#citaDiagnostico").val(cita.diagnostico || "");
                     $("#citaDetalle").removeClass("opacity-50");
+                    cargarRecetas(citaId)
                 } else {
                     $("#citaDetalle").html(`<p class="text-red-500">${response.message}</p>`);
                 }
@@ -33,6 +34,31 @@ $(document).ready(function () {
         });
     } else {
         $("#citaDetalle").html(`<p class="text-red-500">ID de cita no proporcionado.</p>`);
+    }
+
+    //Cargar Receta
+    function cargarRecetas(citaId) {
+        $.ajax({
+            url: "../controllers/process_getRecetaCita.php",
+            type: "GET",
+            data: { cita_id: citaId },
+            dataType: "json",
+            success: function (response) {
+                if (response.length > 0) {
+                    let recetaHtml = '';
+                    response.forEach(receta => {
+                        recetaHtml += `<li> ${receta.cantidad}x ${receta.medicamento_nombre}</li>`;
+                    });
+                    recetaHtml += '</ul>';
+                    $("#recetaList").html(recetaHtml);
+                } else {
+                    $("#recetaList").html('<p>No se encontraron recetas para esta cita.</p>');
+                }
+            },
+            error: function () {
+                $("#recetaList").html('<p>Error al cargar las recetas.</p>');
+            }
+        });
     }
 
     //Reagendar cita
@@ -157,5 +183,9 @@ $(document).ready(function () {
         hoy = yyyy + '-' + mm + '-' + dd;
         $('#nuevaFecha').attr('min', hoy);
     }
+
+    $("#btnAgregarReceta").on("click", function () {
+        window.location.href = `receta.php?cita_id=${citaId}`;
+    });
 
 });
