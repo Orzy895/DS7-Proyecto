@@ -19,7 +19,7 @@ $(document).ready(function () {
                   <td>${cita.paciente_nombre} (${cita.paciente_cedula})</td>
                   <td>${cita.medico_nombre}</td>
                   <td class="px-4 py-2 text-center">
-                    <a href="cita_detalle.php?cita_id=${cita.cita_id}" 
+                    <a href="realizarPagoCita.php?cita_id=${cita.cita_id}" 
                        class="bg-blue-500 text-white text-xs font-semibold py-1 px-3 rounded hover:bg-blue-700 transition">
                       Facturar
                     </a>

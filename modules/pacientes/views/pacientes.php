@@ -14,6 +14,9 @@ include "../../../template/head_template.php"
     <label for="dob">Fecha de Nacimiento:</label>
     <input type="date" id="dob" name="dob" required>
 
+    <label for="correo">Correo: </label>
+    <input type="text" id="correo" name="correo">
+
     <label for="seguro">Seguro: </label>
     <input type="text" id="seguro" name="seguro">
 

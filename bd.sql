@@ -109,10 +109,11 @@ CREATE TABLE Facturas (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   detalles json,
   total DECIMAL(10, 2),
-  cajero_id INT,
-  servicio_id INT,
+  cajero_id INT NOT NULL,
+  cliente_id INT NOT NULL,
+  fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY(cajero_id) REFERENCES Personales(id),
-  FOREIGN KEY(servicio_id) REFERENCES Servicios(id)
+  FOREIGN KEY(cliente_id) REFERENCES Pacientes(id)
 );
 
 CREATE TABLE Recetas (
