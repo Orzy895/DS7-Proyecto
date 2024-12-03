@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($passw, PASSWORD_DEFAULT);
 
     try {
-        $query = "INSERT INTO usuarios (nombre, cedula, email, contraseña, role_id) VALUES (:nombre, :cedula, :email, :password, 1)";
+        $query = "INSERT INTO usuarios (nombre, cedula, email, contraseña, role_id) VALUES (:nombre, :cedula, :email, :password, 2)";
         $stmt = $conn->prepare($query);
 
         $stmt->bindParam(':nombre', $nombre);

@@ -143,8 +143,11 @@ CREATE TABLE MedicamentosReceetas (
 
 
 INSERT INTO `roles` (`nombre`, `descripcion`) VALUES 
-('USUARIO', 'es un usuario'),
-('ADMIN', 'es un administrador');
+('usuario', 'es un usuario'),
+('admin', 'es un administrador'),
+('medico', 'es un medico'),
+('recepcionista', 'es un recepcionista'),
+('farmacia', 'es de farmacia');
 
 INSERT INTO especialidadesmedicas (nombre, descripcion) VALUES
 ('Cardiología', 'Especialidad que se enfoca en el diagnóstico y tratamiento de enfermedades del corazón y del sistema cardiovascular.'),
