@@ -29,7 +29,7 @@ include_once "../../../template/head_template.php"
     <label for="role">Role</label>
     <select id="role" name="role" required></select>
 
-    <button type="submit">Actualizar Usuario</button>
+    <button type="submit" class="mt-4">Actualizar Usuario</button>
 </form>
 <p id="message"></p>
 

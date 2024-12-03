@@ -41,7 +41,8 @@ include_once "../template/head_template.php";
             </div>
 
             <div class="flex justify-between mt-6">
-            <button type="button" id="deleteUserButton" class="bg-red-500 text-white py-2 px-6 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400">Eliminar Usuario</button>
+                <button type="button" id="deleteUserButton" class="bg-red-500 text-white py-2 px-6 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400">Eliminar Usuario</button>
+
                 <button type="submit" class="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">Actualizar Usuario</button>
             </div>
         </form>

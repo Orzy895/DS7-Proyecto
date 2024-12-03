@@ -40,6 +40,10 @@ if (isset($_SESSION['user'])) {
             <img class="img" src="assets/especialidades.png" alt="Ejemplo">
             <a href="modules/especialidades/index.php" class="btn">Especialidades</a>
         </div>
+        <div class="seccion bg-sky-600">
+            <img class="img" src="assets/medicamentos.png" alt="Ejemplo">
+            <a href="modules/medicamentos/index.php" class="btn">Medicamentos</a>
+        </div>
     </div>
 <?php
 } else {
