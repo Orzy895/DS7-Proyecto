@@ -3,7 +3,7 @@ session_start();
 
 require_once '../../../db/Database.php';
 
-if (!isset($_SESSION['user']) || $_SESSION['role'] !== 'ADMIN') {
+if (!isset($_SESSION['user']) || $_SESSION['role'] !== 'admin') {
     die("No tienes permisos para realizar esta acción." . ($_SESSION['user'] . $_SESSION['role']));
 }
 
