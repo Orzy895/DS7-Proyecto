@@ -1,4 +1,4 @@
-<div class="w-56 h-screen bg-gray-900 pt-5 flex flex-col items-center flex-shrink-0 overflow-y-scroll pb-40">
+<div class="w-56 h-screen bg-gray-900 pt-5 flex flex-col items-center flex-shrink-0 overflow-y-auto pb-40">
     <?php
 
     $modulosPorRol = [
